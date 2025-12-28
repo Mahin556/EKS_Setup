@@ -74,7 +74,7 @@ pipeline {
                 ]) {
                     dir('EKS') {
                         echo 'Creating Terraform plan...'
-                        sh 'terraform plan -out=tfplan'
+                        sh 'terraform plan'
                     }
                 }
             }
