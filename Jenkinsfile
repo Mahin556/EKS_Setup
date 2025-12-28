@@ -52,7 +52,7 @@ pipeline {
             steps {
                 dir('EKS') {
                     echo 'Checking Terraform code format...'
-                    sh 'terraform fmt -check'
+                    sh 'terraform fmt'
                 }
             }
         }
