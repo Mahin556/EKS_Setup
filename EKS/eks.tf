@@ -17,7 +17,7 @@ module "eks" {
 
   eks_managed_node_groups = {
     eks_nodes = {
-      ami_type = "AL2023_x86_64_STANDARD"
+      ami_type       = "AL2023_x86_64_STANDARD"
       desired_size   = 2
       max_capacity   = 3
       min_capacity   = 2
@@ -54,7 +54,7 @@ module "eks" {
       most_recent_version = true
     }
     eks-pod-identity-agent = {
-      before_compute = true
+      before_compute      = true
       most_recent_version = true
     }
     kube-proxy = {
@@ -62,7 +62,7 @@ module "eks" {
     }
     vpc-cni = {
       most_recent_version = true
-      before_compute = true
+      before_compute      = true
     }
   }
   # Optional: Adds the current caller identity as an administrator via cluster access entry
