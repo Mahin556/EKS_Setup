@@ -1,3 +1,6 @@
+### Ref
+- https://github.com/awslabs/amazon-eks-ami/releases
+
 ```bash
 set AWS_PROFILE=tf-user2
 
