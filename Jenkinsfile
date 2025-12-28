@@ -23,6 +23,9 @@ pipeline {
     stages {
 
         stage('Checkout Source Code') {
+            when {
+                expression { params.ACTION == 'apply' }
+            }
             steps {
                 echo 'Checking out source code from GitHub...'
                 checkout scmGit(
@@ -35,6 +38,9 @@ pipeline {
         }
 
         stage('Terraform Init') {
+            when {
+                expression { params.ACTION == 'apply' }
+            }
             steps {
                 withCredentials([
                     string(credentialsId: 'AWS_ACCESS_KEY_ID',     variable: 'AWS_ACCESS_KEY_ID'),
@@ -49,6 +55,9 @@ pipeline {
         }
 
         stage('Terraform Format Check') {
+            when {
+                expression { params.ACTION == 'apply' }
+            }
             steps {
                 dir('EKS') {
                     echo 'Checking Terraform code format...'
@@ -58,6 +67,9 @@ pipeline {
         }
 
         stage('Terraform Validate') {
+            when {
+                expression { params.ACTION == 'apply' }
+            }
             steps {
                 dir('EKS') {
                     echo 'Validating Terraform configuration...'
@@ -67,6 +79,9 @@ pipeline {
         }
 
         stage('Terraform Plan') {
+            when {
+                expression { params.ACTION == 'apply' }
+            }
             steps {
                 withCredentials([
                     string(credentialsId: 'AWS_ACCESS_KEY_ID',     variable: 'AWS_ACCESS_KEY_ID'),
