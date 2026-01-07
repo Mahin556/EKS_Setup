@@ -4,8 +4,6 @@ Below is a **clean, structured, easy-to-understand explanation** of the **three 
 * Self-Managed Node Groups
 * EKS Fargate
 
-I’ll explain **what AWS manages vs what you manage**, **why each exists**, and **when to use which**.
-
 ---
 
 ## 1. Managed Node Groups (Most Common – Recommended)
@@ -16,7 +14,6 @@ I’ll explain **what AWS manages vs what you manage**, **why each exists**, and
 * You still run pods on EC2, but AWS simplifies operations
 
 ### AWS responsibility
-
 * Kubernetes control plane (API server, etcd, scheduler, controller manager)
 * OS, kubelet, container runtime, and AMI lifecycle
 * Node replacement on failure
@@ -24,7 +21,6 @@ I’ll explain **what AWS manages vs what you manage**, **why each exists**, and
 * Managed Auto Scaling Group
 
 ### Your responsibility
-
 * Workloads (pods, deployments, services)
 * Cluster configuration (RBAC, quotas, network policies, HPA)
 * Node scaling logic (Cluster Autoscaler / Karpenter)
@@ -32,9 +28,7 @@ I’ll explain **what AWS manages vs what you manage**, **why each exists**, and
 * IAM roles and policies
 
 ### OS / AMI
-
 * Only EKS-optimized AMIs:
-
   * Amazon Linux 2
   * Amazon Linux 2023
   * Bottlerocket
